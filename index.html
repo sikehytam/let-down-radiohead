@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let Down - Radiohead</title>
+  <style>
+    body {
+      background: radial-gradient(circle, #1a1a1a, #000000);
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    .lyrics {
+      margin-top: 30px;
+      font-size: 1.2em;
+      line-height: 1.8;
+      max-width: 800px;
+    }
+
+    .btn {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #e03a55;
+    }
+
+    audio {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Let Down - Radiohead</h1>
+  <div class="lyrics" id="lyricsContainer"></div>
+
+  <button class="btn" onclick="showNextLine()">tekan bang</button>
+
+  <!-- Musik lokal -->
+  <audio id="song" controls autoplay loop>
+    <source src="ssstik.io_1753435244709.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const lyrics = [
+      "You know, you know where you are with",
+      "You know where you are with",
+      "Floor collapses, floating",
+      "Bouncing back and",
+      "One day, I am gonna grow wings",
+      "A chemical reaction (you know where you are)",
+      "Hysterical and useless (you know where you are)",
+      "Hysterical and (you know where you are)"
+    ];
+
+    let currentLine = 0;
+
+    function showNextLine() {
+      if (currentLine < lyrics.length) {
+        const container = document.getElementById("lyricsContainer");
+        const line = document.createElement("div");
+        line.textContent = lyrics[currentLine];
+        line.style.opacity = 0;
+        line.style.transition = "opacity 0.8s ease-in-out";
+        container.appendChild(line);
+        setTimeout(() => line.style.opacity = 1, 100);
+        currentLine++;
+      }
+    }
+  </script>
+
+</body>
+  </html>
